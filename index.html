@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Greer Abrahams &mdash; Brand Architect &amp; Marketing Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  :root{
+    --teal:#005F6B; --coral:#FF8C73; --sand:#F3D7B5; --cream:#EBE5D6;
+    --navy:#0E1B2B; --ink:#23272B; --muted:#7C8487;
+    --paper:#FBF8F2;            /* warm off-white */
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  body{ font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.7; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--coral); color:var(--navy); }
+
+  /* ---------- NAV ---------- */
+  nav{ position:sticky; top:0; z-index:100; background:var(--navy); padding:0 2.5rem; height:66px;
+       display:flex; align-items:center; justify-content:space-between; }
+  .nav-name{ font-family:var(--serif); font-size:0.9rem; font-weight:500; color:#fff;
+             letter-spacing:0.22em; text-transform:uppercase; }
+  .nav-links{ display:flex; gap:2rem; list-style:none; }
+  .nav-links a{ font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase;
+                color:rgba(255,255,255,0.6); transition:color .2s; }
+  .nav-links a:hover{ color:var(--coral); }
+
+  /* ---------- HERO (navy) ---------- */
+  .hero-wrap{ background:var(--navy); position:relative; overflow:hidden; }
+  .hero-wrap::after{ content:''; position:absolute; right:-160px; top:-160px; width:520px; height:520px;
+        border-radius:50%; background:radial-gradient(circle, rgba(255,140,115,0.14), transparent 70%); }
+  .hero{ max-width:980px; margin:0 auto; padding:6rem 2.5rem 5rem; position:relative; z-index:1; }
+  .hero-eyebrow{ font-size:0.72rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--coral);
+                 margin-bottom:1.4rem; font-weight:500; }
+  .hero-name{ font-family:var(--serif); font-size:clamp(2.6rem,6vw,4.6rem); font-weight:600; color:#fff;
+              line-height:1.02; letter-spacing:0.01em; margin-bottom:1.5rem; }
+  .hero-headline{ font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.2rem); font-weight:400;
+                  font-style:italic; color:rgba(255,255,255,0.92); min-height:1.4em;
+                  transition:opacity .4s ease; margin-bottom:3rem; }
+  .hero-headline .accent{ color:var(--coral); font-style:italic; }
+
+  /* prominent contact row */
+  .hero-contacts{ display:flex; flex-wrap:wrap; gap:0.9rem; }
+  .pill{ display:inline-flex; align-items:center; gap:0.6rem; padding:0.7rem 1.2rem;
+         border:1px solid rgba(255,255,255,0.22); border-radius:40px; color:#fff; font-size:0.84rem;
+         letter-spacing:0.02em; transition:all .2s; }
+  .pill svg{ width:16px; height:16px; stroke:var(--coral); transition:stroke .2s; }
+  .pill:hover{ background:var(--coral); border-color:var(--coral); color:var(--navy); }
+  .pill:hover svg{ stroke:var(--navy); }
+  .pill.solid{ background:var(--coral); border-color:var(--coral); color:var(--navy); font-weight:500; }
+  .pill.solid svg{ stroke:var(--navy); }
+  .pill.solid:hover{ filter:brightness(1.06); }
+
+  /* ---------- QUOTE band (cream, visual) ---------- */
+  .quote-wrap{ background:var(--cream); }
+  .quote{ max-width:980px; margin:0 auto; padding:5.5rem 2.5rem; position:relative; }
+  .quote .mark{ font-family:var(--serif); font-size:9rem; line-height:0.6; color:var(--coral);
+                position:absolute; left:1.6rem; top:3rem; opacity:0.5; user-select:none; }
+  .quote p{ font-family:var(--serif); font-style:italic; font-weight:400;
+            font-size:clamp(1.5rem,3.2vw,2.35rem); line-height:1.4; color:var(--navy);
+            max-width:760px; margin-left:auto; }
+  .quote .by{ text-align:right; margin-top:1.8rem; font-family:var(--sans); font-style:normal;
+              font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--teal); }
+
+  /* ---------- SECTION shell ---------- */
+  .section{ max-width:980px; margin:0 auto; padding:5rem 2.5rem; }
+  .section-label{ font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal);
+                  margin-bottom:2.5rem; display:flex; align-items:center; gap:12px; font-weight:600; }
+  .section-label::before{ content:''; width:28px; height:2px; background:var(--coral); }
+
+  /* ---------- WORK (placeholders) ---------- */
+  .cases{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .case{ background:#fff; border:1px solid var(--cream); border-radius:14px; overflow:hidden;
+         display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s; }
+  .case:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(14,27,43,0.10); }
+  .case-head{ background:var(--navy); height:140px; position:relative; overflow:hidden;
+              display:flex; align-items:flex-end; padding:1.2rem 1.5rem; }
+  .case-head .wm{ position:absolute; right:0.6rem; bottom:-1.4rem; font-family:var(--serif);
+                  font-size:6rem; font-weight:700; color:rgba(255,140,115,0.16); line-height:1; }
+  .case-head .ix{ font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase;
+                  color:var(--sand); position:relative; z-index:1; }
+  .case-body{ padding:1.6rem 1.5rem 1.8rem; }
+  .case-soon{ display:inline-block; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
+              color:var(--coral); border:1px solid rgba(255,140,115,0.5); border-radius:30px;
+              padding:0.25rem 0.7rem; margin-bottom:1rem; }
+  .case-title{ font-family:var(--serif); font-size:1.15rem; color:var(--navy); line-height:1.4;
+               margin-bottom:0.6rem; }
+  .case-note{ font-size:0.86rem; color:var(--muted); line-height:1.7; }
+  .case-platforms{ margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--cream);
+                   font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#b9b1a3; }
+  .case-arrow{ display:inline-block; margin-top:1.1rem; font-size:0.7rem; letter-spacing:0.1em;
+               text-transform:uppercase; color:var(--teal); font-weight:600; }
+  .case-soon.live{ color:var(--teal); border-color:rgba(0,95,107,0.4); }
+  .work-foot{ margin-top:2.2rem; font-size:0.78rem; color:var(--muted); line-height:1.7;
+              max-width:760px; }
+
+  /* ---------- CREDENTIALS ---------- */
+  .quals{ display:flex; flex-direction:column; gap:0.1rem; }
+  .qual{ display:flex; justify-content:space-between; align-items:baseline; gap:1.5rem;
+         padding:0.95rem 0; border-bottom:1px solid var(--cream); }
+  .qual:last-child{ border-bottom:none; }
+  .qual .qt{ font-size:0.96rem; color:var(--ink); }
+  .qual .qt b{ color:var(--navy); font-weight:600; }
+  .qual .qt .inst{ color:var(--muted); }
+  .qual .qy{ font-size:0.8rem; font-weight:600; color:var(--teal); white-space:nowrap; }
+
+  /* ---------- CONTACT (navy) ---------- */
+  .contact-wrap{ background:var(--navy); }
+  .contact{ max-width:980px; margin:0 auto; padding:5.5rem 2.5rem;
+            display:grid; grid-template-columns:1fr 1fr; gap:4.5rem; align-items:start; }
+  .contact-title{ font-family:var(--serif); font-size:clamp(2rem,4vw,2.9rem); font-weight:600;
+                  line-height:1.2; color:#fff; margin-bottom:2.5rem; }
+  .contact-title em{ font-style:italic; color:var(--coral); }
+  .clink{ display:flex; align-items:center; gap:1rem; color:rgba(255,255,255,0.82); font-size:0.92rem;
+          padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.12); transition:color .2s; }
+  .clink:hover{ color:var(--coral); }
+  .clink .lab{ font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--coral);
+               min-width:74px; }
+  .form-input{ background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.16); color:#fff;
+               padding:0.9rem 1.1rem; font-size:0.92rem; font-family:var(--sans); outline:none; width:100%;
+               border-radius:8px; margin-bottom:0.8rem; transition:border-color .2s; }
+  .form-input::placeholder{ color:rgba(255,255,255,0.4); }
+  .form-input:focus{ border-color:var(--coral); }
+  .form-textarea{ height:120px; resize:vertical; }
+  .form-submit{ background:var(--coral); color:var(--navy); border:none; padding:0.95rem 2.2rem;
+                font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer;
+                font-family:var(--sans); font-weight:600; border-radius:8px; transition:filter .2s; }
+  .form-submit:hover{ filter:brightness(1.07); }
+
+  /* ---------- FOOTER (navy strip) ---------- */
+  footer{ background:var(--navy); border-top:1px solid rgba(255,255,255,0.08);
+          padding:1.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .foot-left{ font-size:0.74rem; color:rgba(255,255,255,0.5); letter-spacing:0.03em; }
+  .foot-left a{ color:rgba(255,255,255,0.5); }
+  .foot-left a:hover{ color:var(--coral); }
+  .foot-power{ display:flex; align-items:center; gap:0.7rem; }
+  .foot-power span{ font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--sand); }
+  .foot-power img{ height:15px; display:block; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:820px){
+    .cases,.contact{ grid-template-columns:1fr; }
+    .contact{ gap:3rem; }
+  }
+  @media (max-width:540px){
+    nav{ padding:0 1.25rem; } .nav-links{ display:none; }
+    .hero,.section,.quote,.contact{ padding-left:1.4rem; padding-right:1.4rem; }
+    .hero{ padding-top:4rem; }
+    footer{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-name">Greer Abrahams</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap" id="home">
+  <div class="hero">
+    <p class="hero-eyebrow">Brand Architect &amp; Marketing Strategist</p>
+    <h1 class="hero-name">Greer Abrahams</h1>
+    <h2 class="hero-headline" id="hero-headline">I adapt. <span class="accent">You benefit.</span></h2>
+    <div class="hero-contacts">
+      <a class="pill solid" href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn &mdash; /in/gcabrahams
+      </a>
+      <a class="pill" href="mailto:greer@endemic.info">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> greer@endemic.info
+      </a>
+      <a class="pill" href="tel:+27738826622">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 073 882 6622
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-wrap">
+  <div class="quote">
+    <span class="mark">&ldquo;</span>
+    <p>True strategic autonomy lives in industry-agnostic systems: frameworks built independent of legacy constraints, scalable and resilient to the pressures of any market.</p>
+    <p class="by">Greer Abrahams</p>
+  </div>
+</div>
+
+<!-- WORK -->
+<div id="work">
+  <div class="section">
+    <p class="section-label">Selected Work</p>
+    <div class="cases">
+      <a class="case" href="case-bank-gen-z-strategy.html">
+        <div class="case-head"><span class="wm">01</span><span class="ix">Brand Strategy &middot; Banking</span></div>
+        <div class="case-body">
+          <span class="case-soon live">Strategic playbook</span>
+          <h3 class="case-title">Re-entering Gen Z &amp; Gen Alpha: a system-level brand playbook for a major SA bank</h3>
+          <p class="case-note">How an incumbent bank re-enters youth digital culture using existing infrastructure and zero traditional media. An illustrative, full-length strategy.</p>
+          <div class="case-platforms">Roblox &middot; Creator Economy &middot; Loyalty Rebuild</div>
+          <span class="case-arrow">Read case study &rarr;</span>
+        </div>
+      </a>
+      <a class="case" href="koncept-kreative-case-study.html">
+        <div class="case-head"><span class="wm">02</span><span class="ix">Digital Architecture &middot; Fine Art</span></div>
+        <div class="case-body">
+          <span class="case-soon live">Case study</span>
+          <h3 class="case-title">Koncept Kreative: an independent digital home for a Cape Flats artist's life's work</h3>
+          <p class="case-note">Forty-two years of paintings and books, offline and invisible. The build: stop renting attention and own the platform &mdash; a self-reliant digital architecture that doesn't depend on anyone else's algorithm.</p>
+          <div class="case-platforms">Owned Web &middot; Digital Architecture &middot; Brand Identity</div>
+          <span class="case-arrow">Read case study &rarr;</span>
+        </div>
+      </a>
+      <a class="case" href="juno-case-study.html">
+        <div class="case-head"><span class="wm">03</span><span class="ix">Digital Transformation &middot; Retail</span></div>
+        <div class="case-body">
+          <span class="case-soon live">Case study</span>
+          <h3 class="case-title">Juno's Custom African Designs: from an overloaded phone to a Meta-native sales channel</h3>
+          <p class="case-note">Turning a Cape Town leather-and-crochet maker's personal phone into a professional sales engine &mdash; no website, no budget to match one. Brief, approach, and ROI.</p>
+          <div class="case-platforms">Instagram &middot; WhatsApp &middot; Meta Commerce</div>
+          <span class="case-arrow">Read case study &rarr;</span>
+        </div>
+      </a>
+      <div class="case">
+        <div class="case-head"><span class="wm">04</span><span class="ix">Case Study 04</span></div>
+        <div class="case-body">
+          <span class="case-soon">Coming soon</span>
+          <h3 class="case-title">Case study in preparation</h3>
+          <p class="case-note">A detailed breakdown of the brief, the strategic approach, and the measurable outcome.</p>
+          <div class="case-platforms">Platforms &middot; to be added</div>
+        </div>
+      </div>
+    </div>
+    <p class="work-foot"><strong style="color:var(--teal);">Note on case studies:</strong> These are illustrative strategic exercises prepared for portfolio purposes. They are hypothetical, drawn only from publicly observable information, and are not affiliated with, endorsed by, or representative of any actual brand, organisation, or client engagement. No confidential or proprietary information is used or implied. Further case studies are in preparation.
+  </div>
+</div>
+
+<!-- CREDENTIALS -->
+<div class="quote-wrap" id="credentials">
+  <div class="section">
+    <p class="section-label">Credentials</p>
+    <div class="quals">
+      <div class="qual"><span class="qt"><b>BA Corporate Communication (Distinction)</b> <span class="inst">&middot; The Open University London, via Varsity College</span></span><span class="qy">2016</span></div>
+      <div class="qual"><span class="qt"><b>Higher Certificate in Business Practice &amp; Principles</b> <span class="inst">&middot; Varsity College</span></span><span class="qy">2013</span></div>
+      <div class="qual"><span class="qt"><b>Social Media Certificate</b> <span class="inst">&middot; University of Cape Town, via GetSmarter</span></span><span class="qy">2018</span></div>
+      <div class="qual"><span class="qt"><b>Advanced Diploma in Digital Marketing</b> <span class="inst">&middot; Digital School of Marketing, 19 modules completed</span></span><span class="qy">2025</span></div>
+      <div class="qual"><span class="qt"><b>N6 Certificate in Financial Management</b> <span class="inst">&middot; False Bay College</span></span><span class="qy">2006</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact">
+    <div>
+      <h2 class="contact-title">Let's make something <em>worth</em> talking about.</h2>
+      <a href="mailto:greer@endemic.info" class="clink"><span class="lab">Email</span>greer@endemic.info</a>
+      <a href="tel:+27738826622" class="clink"><span class="lab">Phone</span>073 882 6622</a>
+      <a href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener" class="clink"><span class="lab">LinkedIn</span>linkedin.com/in/gcabrahams</a>
+    </div>
+    <div>
+      <input id="cf-name" class="form-input" type="text" placeholder="Your name" />
+      <input id="cf-email" class="form-input" type="email" placeholder="Email address" />
+      <input id="cf-subject" class="form-input" type="text" placeholder="Subject" />
+      <textarea id="cf-message" class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
+      <button class="form-submit" type="button" onclick="cfSend()">Send message</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="foot-left">&copy; 2026 Greer Abrahams &nbsp;&middot;&nbsp; <a href="mailto:greer@endemic.info">greer@endemic.info</a></p>
+  <div class="foot-power"><span>Powered by</span><img src="data:image/png;base64,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" alt="Endemic" /></div>
+</footer>
+
+<script>
+function cfSend(){
+  var v = function(id){ var el=document.getElementById(id); return el ? el.value.trim() : ''; };
+  var name=v('cf-name'), email=v('cf-email'), subject=v('cf-subject'), message=v('cf-message');
+  var subj = subject || (name ? ('Website enquiry from '+name) : 'Website enquiry');
+  var body = message + '\n\n\u2014 ' + (name||'') + (email ? (' \u00b7 '+email) : '');
+  window.location.href = 'mailto:greer@endemic.info'
+    + '?subject=' + encodeURIComponent(subj)
+    + '&body=' + encodeURIComponent(body);
+}
+</script>
+<script>
+(function(){
+  var lines=[
+    'I adapt. <span class="accent">You benefit.</span>',
+    'Same standards. <span class="accent">Every industry.</span>',
+    'Strategy that <span class="accent">fits the room.</span>',
+    'Brand thinking, <span class="accent">AI-powered.</span>',
+    'The whole thing. <span class="accent">Not just the deck.</span>'
+  ];
+  var idx=0, el=document.getElementById('hero-headline');
+  if(!el) return;
+  setInterval(function(){
+    el.style.opacity='0';
+    setTimeout(function(){
+      idx=(idx+1)%lines.length;
+      el.innerHTML=lines[idx];
+      el.style.opacity='1';
+    },400);
+  },3200);
+})();
+</script>
+</body>
+</html>
