@@ -271,11 +271,12 @@
       <a href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener" class="clink"><span class="lab">LinkedIn</span>linkedin.com/in/gcabrahams</a>
     </div>
     <div>
-      <input id="cf-name" class="form-input" type="text" placeholder="Your name" />
-      <input id="cf-email" class="form-input" type="email" placeholder="Email address" />
-      <input id="cf-subject" class="form-input" type="text" placeholder="Subject" />
-      <textarea id="cf-message" class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
-      <button class="form-submit" type="button" onclick="cfSend()">Send message</button>
+      <input id="cf-name" class="form-input" type="text" name="name" placeholder="Your name" />
+      <input id="cf-email" class="form-input" type="email" name="email" placeholder="Email address" />
+      <input id="cf-subject" class="form-input" type="text" name="_subject" placeholder="Subject" />
+      <textarea id="cf-message" class="form-input form-textarea" name="message" placeholder="Tell me about your project..."></textarea>
+      <button id="cf-btn" class="form-submit" type="button" onclick="cfSend()">Send message</button>
+      <p id="cf-status" style="margin-top:0.9rem;font-size:0.92rem;line-height:1.4;display:none"></p>
     </div>
   </div>
 </div>
@@ -290,11 +291,38 @@
 function cfSend(){
   var v = function(id){ var el=document.getElementById(id); return el ? el.value.trim() : ''; };
   var name=v('cf-name'), email=v('cf-email'), subject=v('cf-subject'), message=v('cf-message');
-  var subj = subject || (name ? ('Website enquiry from '+name) : 'Website enquiry');
-  var body = message + '\n\n\u2014 ' + (name||'') + (email ? (' \u00b7 '+email) : '');
-  window.location.href = 'mailto:greer@endemic.info'
-    + '?subject=' + encodeURIComponent(subj)
-    + '&body=' + encodeURIComponent(body);
+  var status=document.getElementById('cf-status');
+  var btn=document.getElementById('cf-btn');
+  var show=function(msg, ok){ status.textContent=msg; status.style.display='block'; status.style.color = ok ? '#1f9d55' : '#e23a3a'; };
+
+  if(!email || !message){ show('Please add your email and a message before sending.', false); return; }
+
+  var label=btn.textContent; btn.disabled=true; btn.textContent='Sending\u2026';
+
+  fetch('https://formspree.io/f/xykaayae', {
+    method:'POST',
+    headers:{ 'Accept':'application/json', 'Content-Type':'application/json' },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      _subject: subject || ('Website enquiry from ' + (name || 'someone')),
+      message: message
+    })
+  }).then(function(res){
+    if(res.ok){
+      show('Thanks \u2014 your message has been sent. I\u2019ll be in touch.', true);
+      ['cf-name','cf-email','cf-subject','cf-message'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+    } else {
+      res.json().then(function(d){
+        var m = (d && d.errors && d.errors[0] && d.errors[0].message) ? d.errors[0].message : 'Something went wrong. Please email me directly at greer@endemic.info.';
+        show(m, false);
+      }).catch(function(){ show('Something went wrong. Please email me directly at greer@endemic.info.', false); });
+    }
+  }).catch(function(){
+    show('Network error. Please email me directly at greer@endemic.info.', false);
+  }).then(function(){
+    btn.disabled=false; btn.textContent=label;
+  });
 }
 </script>
 <script>
