@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Greer Abrahams &mdash; Full Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --coral:#FF8C73;
+    --teal:#2D7D7B;        /* headings, name, lead-ins */
+    --ink:#3C4A4A;         /* body text */
+    --muted:#7E8A8A;       /* captions, years, roles */
+    --panel:#EEF3F2;       /* light grey panels */
+    --line:#E1E8E7;        /* hairlines */
+    --navy:#0E1B2B;        /* footer strip */
+    --paper:#FFFFFF;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  body{ font-family:var(--sans); background:#F4F6F6; color:var(--ink); line-height:1.6; }
+  a{ color:inherit; text-decoration:none; }
+
+  .sheet{ max-width:880px; margin:0 auto; background:var(--paper);
+          border-top:5px solid var(--coral); box-shadow:0 10px 40px rgba(14,27,43,0.08); }
+  .pad{ padding:3rem 3.25rem; }
+
+  /* ---------- HEADER ---------- */
+  .head{ display:flex; gap:2rem; align-items:flex-start; justify-content:space-between; }
+  .head-main{ flex:1; min-width:0; }
+  .cv-name{ font-size:2.5rem; font-weight:700; color:var(--teal); line-height:1.05; letter-spacing:-0.01em; }
+  .cv-title{ font-size:1.1rem; font-weight:600; color:var(--teal); letter-spacing:0.01em; margin-top:0.15rem; }
+  .cv-quote{ font-style:italic; color:var(--muted); font-size:0.92rem; line-height:1.55;
+             border-left:3px solid var(--coral); padding-left:1rem; margin:1.4rem 0 1.6rem; max-width:560px; }
+  .contacts{ display:flex; flex-wrap:wrap; gap:0.5rem 1.6rem; font-size:0.86rem; }
+  .contacts a,.contacts span{ display:inline-flex; align-items:center; gap:0.45rem; color:var(--ink); }
+  .contacts svg{ width:15px; height:15px; stroke:var(--teal); flex:none; }
+  .photo{ flex:none; width:128px; height:128px; border-radius:50%; padding:4px;
+          background:linear-gradient(135deg,var(--coral),var(--teal)); }
+  .photo-inner{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;
+                background:var(--panel); }
+  .photo-fallback{ width:100%; height:100%; border-radius:50%; background:var(--panel);
+                   display:flex; align-items:center; justify-content:center;
+                   font-size:2.2rem; font-weight:700; color:var(--teal); }
+
+  /* ---------- EXEC PROFILE PANEL ---------- */
+  .panel{ background:var(--panel); border-radius:12px; padding:1.6rem 1.8rem; margin-top:2rem; }
+  .panel h2{ font-size:0.82rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+             color:var(--teal); margin-bottom:0.8rem; }
+  .panel p{ font-size:0.94rem; color:var(--ink); line-height:1.7; }
+
+  /* ---------- STATS ---------- */
+  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.5rem; }
+  .stat{ background:var(--panel); border-radius:12px; padding:1.2rem 1rem; text-align:center; }
+  .stat .num{ font-size:1.7rem; font-weight:700; color:var(--teal); line-height:1; }
+  .stat .cap{ font-size:0.74rem; color:var(--muted); line-height:1.4; margin-top:0.5rem; }
+
+  /* ---------- SECTIONS ---------- */
+  .sec{ margin-top:2.6rem; }
+  .sec-h{ font-size:0.9rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase;
+          color:var(--teal); padding-bottom:0.7rem; border-bottom:1px solid var(--line); margin-bottom:1.4rem; }
+
+  .job{ margin-bottom:1.6rem; }
+  .job:last-child{ margin-bottom:0; }
+  .job-top{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+            flex-wrap:wrap; margin-bottom:0.7rem; }
+  .job-role{ font-size:1rem; font-weight:700; color:var(--teal); }
+  .job-date{ font-size:0.74rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+             color:var(--muted); white-space:nowrap; }
+
+  .points{ list-style:none; display:flex; flex-direction:column; gap:0.55rem; }
+  .points li{ position:relative; padding-left:1.3rem; font-size:0.91rem; color:var(--ink); line-height:1.6; }
+  .points li::before{ content:''; position:absolute; left:0; top:0.55em; width:7px; height:7px;
+                      background:var(--coral); border-radius:1px; }
+  .lead{ font-weight:700; color:var(--teal); }
+  .lead.coral{ color:var(--coral); }
+
+  /* ---------- EDUCATION ---------- */
+  .edu{ display:flex; flex-direction:column; }
+  .edu-row{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+            padding:0.7rem 0; border-bottom:1px solid var(--line); }
+  .edu-row:last-child{ border-bottom:none; }
+  .edu-row .et{ font-size:0.92rem; }
+  .edu-row .et b{ color:var(--teal); font-weight:700; }
+  .edu-row .et .inst{ color:var(--muted); }
+  .edu-row .ey{ font-size:0.78rem; font-weight:600; color:var(--muted); white-space:nowrap; }
+
+  .tech-note{ font-size:0.91rem; color:var(--ink); line-height:1.7; margin-top:1.2rem; }
+  .tech-note b{ color:var(--teal); font-weight:700; }
+
+  .sub-h{ font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:var(--teal);
+          margin:1.6rem 0 0.9rem; }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:0.55rem; }
+  .tag{ background:var(--panel); color:var(--teal); font-size:0.8rem; font-weight:600;
+        padding:0.4rem 0.85rem; border-radius:30px; }
+
+  /* ---------- REFERENCES ---------- */
+  .refs{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .ref{ background:var(--panel); border-radius:12px; padding:1.3rem 1.4rem; }
+  .ref .rn{ font-size:0.95rem; font-weight:700; color:var(--teal); }
+  .ref .rr{ font-size:0.82rem; color:var(--muted); line-height:1.4; margin-top:0.2rem; }
+  .ref .rc{ font-size:0.84rem; font-weight:600; color:var(--ink); margin-top:0.8rem; }
+  .ref .rc a{ display:block; }
+
+  /* ---------- FOOTER ---------- */
+  .cv-foot{ background:var(--navy); display:flex; align-items:center; justify-content:space-between;
+            gap:1rem; padding:1.2rem 3.25rem; }
+  .cv-foot .fl{ font-size:0.78rem; color:rgba(255,255,255,0.6); letter-spacing:0.02em; }
+  .cv-foot .fl a:hover{ color:var(--coral); }
+  .cv-foot .fr{ display:flex; align-items:center; gap:0.7rem; }
+  .cv-foot .fr span{ font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--coral); }
+  .cv-foot .fr img{ height:15px; display:block; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:720px){
+    .pad{ padding:2rem 1.4rem; }
+    .head{ flex-direction:column-reverse; align-items:flex-start; }
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .refs{ grid-template-columns:1fr; }
+    .cv-name{ font-size:2rem; }
+    .cv-foot{ flex-direction:column; align-items:flex-start; padding:1.2rem 1.4rem; }
+  }
+  @media (max-width:430px){
+    .stats{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="pad">
+
+    <!-- HEADER -->
+    <header class="head">
+      <div class="head-main">
+        <h1 class="cv-name">Greer Abrahams</h1>
+        <p class="cv-title">Brand Architect &amp; Marketing Strategist</p>
+        <p class="cv-quote">True strategic autonomy lives in industry-agnostic systems: frameworks built independent of legacy constraints, scalable and resilient to the pressures of any market.</p>
+        <div class="contacts">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Cape Town, South Africa</span>
+          <a href="tel:+27738826622"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>073 882 6622</a>
+          <a href="mailto:greer@endemic.info"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>greer@endemic.info</a>
+          <a href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/gcabrahams</a>
+          <a href="https://mywork.endemic.info" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>mywork.endemic.info</a>
+        </div>
+      </div>
+      <div class="photo">
+        <div class="photo-fallback">GA</div>
+      </div>
+    </header>
+
+    <!-- EXECUTIVE PROFILE -->
+    <div class="panel">
+      <h2>Executive Profile</h2>
+      <p>A decade of high-stakes brand and communication strategy, now amplified by AI-driven production. I bridge complex strategic frameworks and precision execution, working across industries because the core discipline is universal: understand the business, decode the audience, and build communication systems that perform under pressure. I don&rsquo;t just architect the strategy; I build the ecosystem and deliver the output.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat"><div class="num">10+</div><div class="cap">Years in brand &amp; marketing comms</div></div>
+      <div class="stat"><div class="num">130</div><div class="cap">Clubs managed for CX strategy</div></div>
+      <div class="stat"><div class="num">8</div><div class="cap">Provinces in national crisis ops</div></div>
+      <div class="stat"><div class="num">500+</div><div class="cap">Personnel coordinated in real time</div></div>
+    </div>
+
+    <!-- STRATEGIC CONSULTING -->
+    <section class="sec">
+      <h2 class="sec-h">Strategic Consulting &amp; Agency Engagement</h2>
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role">Digital Marketing Strategist &middot; The Trust Gap</span>
+          <span class="job-date">2026 &ndash; Present</span>
+        </div>
+        <ul class="points">
+          <li><span class="lead">Strategic advisory:</span> External lead strategist bridging business objectives and digital execution for high-profile clients.</li>
+          <li><span class="lead">UCT Graduate School of Business:</span> Partnering with UCT GSB to drive strategic marketing initiatives and campaign implementation.</li>
+          <li><span class="lead">Lodges of Botswana &amp; Footsteps in Africa:</span> Digital oversight and marketing orchestration for premium tourism brands, aligning digital presence with high-end experiential offering.</li>
+          <li><span class="lead">Project lead, Koncept Kreative &amp; Endemic:</span> Spearheading end-to-end design, UX architecture and deployment of modular, AI-integrated brand platforms built from the ground up.</li>
+          <li><span class="lead coral">Proof point:</span> One complete visual identity and campaign system built from first principles in a single session.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section class="sec">
+      <h2 class="sec-h">Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role">Communication Specialist &amp; CX Manager &middot; Virgin Active (SA, Botswana, Namibia)</span>
+          <span class="job-date">2025 &ndash; 2026</span>
+        </div>
+        <ul class="points">
+          <li><span class="lead">CX custodian:</span> Single point of contact for Customer Experience across 130 clubs.</li>
+          <li><span class="lead">Stakeholder liaison:</span> Managed stakeholders from national management to individual club managers.</li>
+          <li><span class="lead">Proactive operations:</span> Executed member communication strategies, reporting directly to the Head of Department.</li>
+          <li><span class="lead">Data-driven messaging:</span> Owned the operational calendar, ensuring segmented messages reached the correct databases.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role">Group Online Reputation Manager &middot; Mweb &amp; Webafrica (Merger)</span>
+          <span class="job-date">2024 &ndash; 2025</span>
+        </div>
+        <ul class="points">
+          <li><span class="lead">Strategy:</span> Led brand-voice architecture for two competing ISPs through a high-stakes merger, holding distinct identities across shared channels.</li>
+          <li><span class="lead">Operations:</span> Executed full-scale system migrations to Sprout Social, rebuilding automation and workflows from scratch.</li>
+          <li><span class="lead coral">Proof point:</span> 12 team members led through full-scale system migrations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role">Brand Manager, Social Media &middot; Mweb</span>
+          <span class="job-date">2022 &ndash; 2024</span>
+        </div>
+        <ul class="points">
+          <li><span class="lead">Innovation:</span> Spearheaded a shift to Qualtrics Social Connect, establishing the company&rsquo;s first automated response and brand-voice framework.</li>
+          <li><span class="lead">Business intelligence:</span> Translated social sentiment into actionable reports for Operations and CX leadership.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-role">National Social Media Specialist &middot; Working on Fire (Government / EPWP)</span>
+          <span class="job-date">2021 &ndash; 2022</span>
+        </div>
+        <ul class="points">
+          <li><span class="lead">Crisis communication:</span> Served in the national Incident Command Centre for COVID-19, ensuring protocol compliance for 500+ personnel.</li>
+          <li><span class="lead">Operational scale:</span> Coordinated national emergency reporting across eight provinces, managing complex communication for international deployments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="sec">
+      <h2 class="sec-h">Credentials &amp; Technical Foundation</h2>
+
+      <h3 class="sub-h">Education &amp; Qualifications</h3>
+      <div class="edu">
+        <div class="edu-row"><span class="et"><b>BA Corporate Communication (Distinction)</b> <span class="inst">&middot; The Open University London, via Varsity College</span></span><span class="ey">2016</span></div>
+        <div class="edu-row"><span class="et"><b>Higher Certificate in Business Practice &amp; Principles</b> <span class="inst">&middot; Varsity College</span></span><span class="ey">2013</span></div>
+        <div class="edu-row"><span class="et"><b>Social Media Certificate</b> <span class="inst">&middot; University of Cape Town, via GetSmarter</span></span><span class="ey">2018</span></div>
+        <div class="edu-row"><span class="et"><b>Advanced Diploma in Digital Marketing</b> <span class="inst">&middot; Digital School of Marketing, 19 modules completed</span></span><span class="ey">2025</span></div>
+        <div class="edu-row"><span class="et"><b>N6 Certificate in Financial Management</b> <span class="inst">&middot; False Bay College</span></span><span class="ey">2006</span></div>
+      </div>
+
+      <p class="tech-note"><b>AI orchestration:</b> Advanced prompt architecture and content scaling for consistency and executive-level output.</p>
+      <p class="tech-note"><b>Strategic architecture:</b> Brand positioning and cross-platform performance ecosystems. 90-day market-entry strategy delivered for a B2B global brand.</p>
+
+      <h3 class="sub-h">Platform mastery</h3>
+      <div class="tags">
+        <span class="tag">Meta Business Suite</span>
+        <span class="tag">Sprout Social</span>
+        <span class="tag">Meltwater</span>
+        <span class="tag">Brandwatch</span>
+        <span class="tag">Braze</span>
+        <span class="tag">Qualtrics Social Connect</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">Freshdesk</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Asana</span>
+        <span class="tag">Google Analytics</span>
+        <span class="tag">Search Console</span>
+        <span class="tag">MS Office</span>
+        <span class="tag">Google Workspace</span>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="sec">
+      <h2 class="sec-h">Professional References</h2>
+      <div class="refs">
+        <div class="ref">
+          <div class="rn">Karin O&rsquo;Donoghue</div>
+          <div class="rr">Head of Marketing<br>Mweb &amp; Webafrica</div>
+          <div class="rc">
+            <a href="tel:+27824248186">082 424 8186</a>
+            <a href="mailto:karininsa@gmail.com">karininsa@gmail.com</a>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="rn">Linton Rensburg</div>
+          <div class="rr">Communication Manager<br>Working on Fire</div>
+          <div class="rc">
+            <a href="tel:+27825080990">082 508 0990</a>
+            <a href="mailto:linton.rensburg@wofire.co.za">linton.rensburg@wofire.co.za</a>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="rn">Somi Emma-Iwohu</div>
+          <div class="rr">Digital Marketing Specialist<br>Mweb</div>
+          <div class="rc">
+            <a href="tel:+27840705657">084 070 5657</a>
+            <a href="mailto:sohmmey@gmail.com">sohmmey@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="cv-foot">
+    <p class="fl"><a href="mailto:greer@endemic.info">greer@endemic.info</a> &nbsp;&middot;&nbsp; <a href="tel:+27738826622">073 882 6622</a></p>
+    <div class="fr"><span>Powered by</span><img src="data:image/png;base64,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" alt="Endemic" /></div>
+  </footer>
+</div>
+
+</body>
+</html>

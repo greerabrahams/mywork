@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to Make a Skeptic Swipe Right &mdash; Greer Abrahams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  :root{
+    --teal:#005F6B; --coral:#FF8C73; --cream:#EBE5D6; --navy:#0E1B2B;
+    --ink:#23272B; --muted:#7C8487; --paper:#FBF8F2;
+    --serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  }
+  body{ font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.7; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--coral); color:var(--navy); }
+
+  nav{ position:sticky; top:0; z-index:100; background:var(--navy); padding:0 2.5rem; height:66px;
+       display:flex; align-items:center; justify-content:space-between; }
+  .nav-name{ font-family:var(--serif); font-size:0.9rem; font-weight:500; color:#fff;
+             letter-spacing:0.22em; text-transform:uppercase; }
+  .nav-back{ font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase;
+             color:rgba(255,255,255,0.6); transition:color .2s; }
+  .nav-back:hover{ color:var(--coral); }
+
+  .art-head{ background:var(--navy); position:relative; overflow:hidden; }
+  .art-head::after{ content:''; position:absolute; right:-160px; top:-160px; width:520px; height:520px;
+        border-radius:50%; background:radial-gradient(circle, rgba(255,140,115,0.14), transparent 70%); }
+  .art-head-inner{ max-width:720px; margin:0 auto; padding:5rem 2.5rem 3.5rem; position:relative; z-index:1; }
+  .art-eyebrow{ font-size:0.72rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--coral);
+                margin-bottom:1.3rem; font-weight:500; }
+  .art-title{ font-family:var(--serif); font-size:clamp(2.1rem,5vw,3.2rem); font-weight:600; color:#fff;
+              line-height:1.1; margin-bottom:1.2rem; }
+  .art-by{ font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .art-by span{ color:var(--cream); }
+
+  .art-body{ max-width:720px; margin:0 auto; padding:3.5rem 2.5rem 1rem; }
+  .art-body p{ font-size:1.08rem; line-height:1.85; color:var(--ink); margin-bottom:1.5rem; }
+  .art-h2{ font-family:var(--serif); font-size:1.5rem; font-weight:600; color:var(--navy);
+           margin:2.9rem 0 1.3rem; padding-bottom:0.55rem; position:relative; }
+  .art-h2::after{ content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:var(--coral); }
+  .art-h2 .stage{ color:var(--coral); font-style:italic; font-weight:400; }
+  .art-close{ font-family:var(--serif); font-style:italic; font-size:1.2rem; color:var(--teal); }
+
+  .art-end{ max-width:720px; margin:0 auto; padding:2rem 2.5rem 4rem; }
+  .art-end a{ font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); font-weight:600; }
+  .art-end a:hover{ color:var(--coral); }
+
+  footer{ background:var(--navy); border-top:1px solid rgba(255,255,255,0.08);
+          padding:1.4rem 2.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .foot-left{ font-size:0.74rem; color:rgba(255,255,255,0.5); letter-spacing:0.03em; }
+  .foot-left a{ color:rgba(255,255,255,0.5); }
+  .foot-left a:hover{ color:var(--coral); }
+  .foot-power{ display:flex; align-items:center; gap:0.7rem; }
+  .foot-power span{ font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--cream); }
+  .foot-power img{ height:15px; display:block; }
+
+  @media (max-width:540px){
+    nav{ padding:0 1.25rem; }
+    .art-head-inner,.art-body,.art-end{ padding-left:1.4rem; padding-right:1.4rem; }
+    .art-head-inner{ padding-top:3.5rem; }
+    footer{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Greer Abrahams</a>
+  <a href="index.html#thought-leadership" class="nav-back">&larr; All work</a>
+</nav>
+
+<div class="art-head">
+  <div class="art-head-inner">
+    <p class="art-eyebrow">Thought Leadership</p>
+    <h1 class="art-title">How to Make a Skeptic Swipe Right</h1>
+    <p class="art-by">By <span>Greer Abrahams</span></p>
+  </div>
+</div>
+
+<article class="art-body">
+  <p>Picture the guy outside the window, boombox hoisted over his head, serenading someone who has never once looked his way. Grand. Romantic. And completely wasted on a person who doesn't know him.</p>
+
+  <p>Now picture a stranger walking up to you and proposing marriage. Not a coffee. Marriage. Odd. Frankly terrifying. You'd run.</p>
+
+  <p>That, more or less, is what most brands do to a new audience. They show up with the boombox and the proposal, the loud campaign and the big promise, to someone who has never met them, and then wonder why nobody swoons.</p>
+
+  <p>This is for the established brand: the one that has been around for years and already has a loyal base. You're already there: established, trusted, comfortable. But don't let your comfort become your trap. The people who already love you will continue to love you, and retaining them is the easy part; nobody enjoys switching providers, and steady service keeps them exactly where they are. The people you actually want have never heard of you. Not even a little. As the consumer landscape changes, new audiences become more relevant, and to them, you are nobody. Worse, the newer, fresher brands you'd never even noticed are already sitting in their homes, sharing coffees, swapping stories, actively dating them. Wooing them with things you are perfectly capable of, but haven't been doing. Pouring money into paid media - slicing it by area and income, expecting the name to do the work - will cost you a fortune and almost certainly deliver very few sales, let alone qualified leads. You are the stranger with the boombox. That realisation can be a shock at first, but do not fear: you can turn it around.</p>
+
+  <p>A hard sell was never going to work, and that's why it didn't. You've got the goods; you're just doing it wrong. It's quite frankly the unrequited serenade, or worse, the marriage proposal from a stranger. A skeptical audience behaves exactly like a skeptical person. You don't win either with a grand gesture. That's just love bombing, and you can't force someone to commit to you. You earn that commitment, slowly: with consistency, with proof rather than adjectives, by not showing off who you are but showing what you can do for them. And by being consistent. Consistency is key: show up and be the same at every touchpoint, because to someone who's skeptical, inconsistency reads as a lie.</p>
+
+  <p>Ponder this: it is everything that happens before the vows that gets you to them. Focus on that. Don't put the cart before the horse. So do it properly. Put down the boombox, back away from the window, and stop proposing to random strangers - it's weird. Court them. Put yourself out there. Get on the dating app.</p>
+
+  <h2 class="art-h2">Get yourself seen <span class="stage">(Awareness)</span></h2>
+
+  <p>First, they need to notice you, and trust what they see. You need to look familiar enough to feel safe, but different enough not to blend into every other option. Not a stranger. Not a reinvention. A reintroduction. Introducing yourself as brand new will most certainly throw away the credibility you've spent years building; reintroducing yourself keeps it.</p>
+
+  <p>Soften. Let go of the aloof, pompous corporate jargon that quietly says 'not for you', and dial it back, just enough to feel approachable, without startling your loyal customers who have already committed to you. (The last thing you want is for them to feel cheated on.) Find the sweet spot: warmer, more relatable, something with enough range to let you move between your established self and your new one without looking like two different brands.</p>
+
+  <p>Don't overwhelm them with promotions and free gifts. Simply say: 'Hi. I've been around. I'm stable, established, confident, and I'd love to get to know you.'</p>
+
+  <h2 class="art-h2">Let them get to know you <span class="stage">(Interest)</span></h2>
+
+  <p>Write your metaphorical bio. This matters. These are the first few lines that decide whether someone swipes right or left. Don't reinvent your story. That would be disingenuous and unfair to your brand. Reframe it. Tell them your story the way you'd tell a new match about your past. Tell them who you are, what you've done, and what you can do for them, but tell it to someone who wasn't there for any of it.</p>
+
+  <p>Tell them your age, how long you've been around. Tell them how many people already trust you. Not as a brag, but as credibility, the kind you earn rather than claim. Lean on a quiet truth: even when you weren't with them, you were in the same room all along, just standing on the other side of it. The aim is not to point at the distance between you. Point at everything you already have in common, because shared stories build a connection far faster than any sales pitch. For one, they need a service, and you have it. That's already one thing in common.</p>
+
+  <p>Take them on a first date. Use your past, and theirs, to build something better together. And then keep doing it. Take them on several dates: no hard sells, no flashy anything, just keep talking. Let your new audience get to know you by being relatable now, while letting your past do the heavy lifting, proof that what you did for others, you can do for them too.</p>
+
+  <h2 class="art-h2">Making it official <span class="stage">(Conversion)</span></h2>
+
+  <p>Make your intentions clear. You want them as your customer, so ask them straight out: do you want to be mine? No bribes with desperate discounts or a stack of free gifts. That's a hostage situation dressed as a proposal. You might as well go back to the boombox then, yuck. A yes you bought won't lead to loyalty; it's transactional, and you don't want transactional, you want commitment. If it's transactional, they will leave the moment someone offers them a bigger, shinier, newer ring. So you ask plainly, once, from a place of quiet confidence that you have earned.</p>
+
+  <p>Don't make them feel cornered. Remember - and louder for the people at the back: you can't force someone to commit to you. But you can make it easy for them to say yes. Keep the question simple, uncomplicated, one-click. Not a 45-page manuscript with endless terms and conditions. Make the journey from your question to their purchase as easy as buying a coffee. You need to be stable and consistent enough that they say yes - not because they're trapped, but because they're genuinely excited to build a life with you.</p>
+
+  <p class="art-close">May your customer journeys be easy, and your conversion rates be high.</p>
+</article>
+
+<div class="art-end">
+  <a href="index.html#thought-leadership">&larr; More writing</a>
+</div>
+
+<footer>
+  <p class="foot-left">&copy; 2026 Greer Abrahams &nbsp;&middot;&nbsp; <a href="mailto:greer@endemic.info">greer@endemic.info</a></p>
+  <div class="foot-power"><span>Powered by</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAADNCAYAAAB3oBnYAAAVZ0lEQVR4nO3d21IkObIFUDFW///LnIeyPE1BJhkXXdxdaz2N2VSDtOUhhUck8PH5+dkAAACguv+tHgAAAADMoAEGAABgCxpgAAAAtqABBgAAYAsaYAAAALagAQYAAGALGmAAAAC2oAEGAABgCxpgAAAAtqABBgAAYAsaYAAAALbwZ/UAAEjp8+C/+xg6CgCAEzTAAJxxtPH9/u81wgDAchpgAI462/w++281wgB7enWGOBeYSgMMwDt3Gt9nX8vNDkB9R8+Or//O+cBwGmAAZtMEA9TV49NCrTknGMRvgQbgNz3f/s74ugCs8dn6f2LIWUF3GmAAXhl94+HGBqCGkfu5s4KuNMAAPDPrhsONDUBuM/ZxZwXdaIABAIArZjammmC60AAD8J2bDADeWXFWOJ+4TQMMwGpuaACAKTTAAADAGSsfXHpoyi0aYAC+cmMBwG8inBMRxkBSGmAAAAC2oAEGAACO8OaV9DTAAABANppxLtEAAwAAsAUNMAAReJIPAAynAQYAAGALGmAAAAC2oAEGAABgCxpgAAAgI78/gtM0wAAAAGxBAwwAAGT0sXoA5KMBBgAAYAsaYAAAALagAQYAALLx8Wcu0QADAABHaDpJTwMMAADAFjTAAADAURHeAkcYA0lpgAEAgDNWNqCaX27RAAMAALAFDTAAAHDWijex3v5ymwYYAAC4YmZDqvmlCw0wAABw1YzGVPNLNxpgAADgjpENquaXrv6sHgAAAJDeo1H97Pz1oCsNMAAA0MvdRljjy1AaYAAAoLczjbCml2k0wAAAwCiaW0LxS7AAAADYggYYAACALWiAAYjAR+QAgOE0wABE0OvPZgAAvKQBBgAAYAsaYAAAALagAQYAAGALGmAAAAC2oAEGAABgCxpgAAAAtqABBgAAYAt/Vg8goLt/i/KjyyiI7kqdqI29qBF6O1tT6qkmddDX1fs+uRLdnZ6mdH1/fH7e7ffSWjHx0sVUzMoLQ53kMrNWZtSG2l/HuURr8+tghxqQ6VpH85fbec6NC3ZqgKNONH0RFRG1PlpTI5FEqpNRdaEBnidSPT3stgZRRKqFCjUQKc/WamR6hbfrfUWr669SrdkODXCmCaYqngIy1caDGpkvQ530rAsN8FgZ6ulhh/VYKUMtZKqBDHm2livTq3qtxQ5ZvZOlrr8LvXZVG+AKkwpdOMlVqI/W1MhoGeukR01ogPvLWEvfVV2b2TLXQtQakGksvdejYkbvZK7pZ8KtYaUGuMxEvglXNElVrY/W1EhPVerkTk1ogPupUk9fVVujWSrVQoQaqJRnazEy7WHUulTJ5zfVavqZMOtYoQFOP4GDwhRNMrvUR2tq5I6qdXKlJjTA91StpWcqrNdoleth1frLNKbR65I5m99UrudXlq9l5gY47cBvWl40SexaH62pkTN2qZMzNaEBvmaXWnom87qNslM9zFr/XTLNej3NWJ+s2TyzSz3/Ztl6ZmyA0w14kEqbQE/q4z9q5LVd6+RITWiAz9m1lr7LuHYj7FoPI9dfpvHNWqNMmbyyaz3/Zvq6/m/2N7zhsymar2Txk0z+JY/nds5l57mPIM//OKP3nv+oucs0vpnjzJLJK9nHP8r08yNLA6xgnnPD8ZccXpPNv2Qhg17k+NyOudhn/+qdg0zVVhXW8ZhpGUVvgBXMMTtntPPcz9j9Wtp9/t/J4jq19N5OGe0yzzN6ZCLXf8kjp532wl6mZBa5AVYw5+x2ke023152zGzHOR/hGjpHXudVz6v6/O64mo3r7DW5/JUlhyzjjGroXhC1AVY01+2Q3Q5zHGmn/Haa61VRMor8y02iZJRR1eyqzqunsxnJ9L1oDwgijSUSufQzJMtoDXC0CzuryhlWnttM1XO0l5wTIasIY3gm6rgyqXY9VprLaEezkuk58oqp2l4XRfdMIzXACqavinlWnNNKVfOsOq/RVh/cEd8Aq6W+KuRZYQ6zyWwMucZiPcbqmm+UBljRjFEp10pziWR109NbpbmwTrXrIpLMuWYe+2q/ZSfX62QXg3WYo1vOERpgRTNWhRu57OPPoELGFeYAO8h4rWYcczTPMpTrfTJcS/5zdcl7dQOsaHhHjcyTOevMYyeOCg8Ms8iUc6axRvf54n9DRmp4jdtn9coGWNHMlTHvjGNmPnVSg3UkInXZnwdN/clzPpmvd3kNVjXAimaNTLlnGmsl2XLPNl5eW/1LsNTSfNEbochjg+/U6zyyTm5FA6xo1sqQf4YxVpYl/yzjJD61BFRgLxtPxrFcWo/ZDbCiiSHyOkQe206ir0P08ZGHWlov4hpEHBOwln0hptPrMrMBVjQAROJciiPSWkQaC5ylfuGNWQ2wizGeiD97FW08u4u6HlHHRS7qKB5rAn24lvqTaWyn1mf1n0ECOMMBRA/qCICjnBnF/JnwPSoUzZHfTpp1np9t/W9fbS1vftVFqQ/gP2euyWx76+o9J1tewFj2hIJGN8AZi+bqwfvqv8uYAXy1+ob0wbVED9nq6O619/W/zzb32eRDJVHO7szsCUXNeAMc3ejN4aPFv4BWb5LR83nnXXbZ5xdBhQyvXmMV5h5FlixH7cffv27UPFafSZlU/oTaTHKkssqfGrrk4/Nz2DyjB7jqcI2cy4pMIufxTM+Mdp77Wdmyam1cXhmzOGJGfUXPzh78r9l5RM6itb3Pn5565Zglw5HX0aoMnBev7XzvcXjuo94ARw5p9VPlx/ePmJGn7s/NeBsTsR6+W1UfGbJ5mJFPtrqJImpWq/fcyGfSTJHnP6JGdlz33jnai4lkxidaH9LX+24fgV59o/HVjofPd9HnPrNe1MNzWfJYtbdk+BGLCKJm5Ez63e4PZWc+UIu07r3NyjFqhrtfR1dEXcvvVt57tJYnpx9GNMARw4h84UfeNHdmU+GICHtLqaeym4hQN6/suAdFnOvsGqm67h5kc1b09Yt0fqSt+ep/B/ijxSqUVyKNc1YRR71YoqxFhDE8E3XdZotSJ99FHNNq0Wo2yxpFGWe09Rtt9d4SZd3vWpnj6jWkrqh1FXVcL/VugCMdVOkWo+UccyXR8o82ntki7ScPGW5sMoxxV9nWJdt4s4uSd5RxXBVl/FHG0VrM8zSiqDllONczjPH/VX0DnGYBnogw9qgbwEgRcn8m4oYyoz52rMHeotXNCpHqKOt6RBj3yHWMUiMRcv4q2niOijbuaOMhn2w1lGK8PRtgh0g/Febwmyi10lrMBvOZDGOsLEudfJdxzNVkrZ2vso8/uqj5Rh3XK1HHG3Vc/CvSvelD1tpZMe5T37PaG+CshfJMpblElS3jSOONeFCMEin3K7KP/6qdanSG1XVkPddYve704xrKJfu1F3r8vRrgCBdV6KATirCm/LRDnUeqvSp5V5lHNtVyrzafCGTaR/Qco49vd5HuO1qrUy+z5nH6+/RogCMUTZVC+a7ivCLUS2s1s6WvajVSbT6/ibDP7JR3VqvrJEuNRB9n9PE9ZBkna1Wrk9HzufT1q30EuqJqF0IE2TPNPv4MqmZcdV7RVM555dxWN6w7i1rTUcf1yurxuoZ+ipTJ6voYZdS8Ln/dCg1w1WKJINKmwL8i1P2I+lBz40WonZHU0HjVa2gGGQJfVd8Tev9CyFtf624DvPpGo3qxPFSZ5+p6aa1Olq3VmkskO+S6wxxXkS1VRavtaOOBq3aq5R5zvf01KrwBBuhlp0OI/naqn53m2pvs9mb92d3Vt8Hd3iJnboB320B2m+8IFTOsNKcInxDYSbTasf4c0atO1Ftu0fYvcoqwD+xcyx/t96b248C/ueROAxyhaHaz4iKpss47bzAjVamP1tTIaj3yX1mPO9bPjnPenTXvQ47wr+/N7tBrJOsbYBsHwH320j7kyFFqBWKI8ADffrBIxgZYscC/XBP37ZzhznMH2E2Exg9n71IZG2By8tFEfuNA5i41tIYfzWE2Zzpwy9UG2OGzjpsNnll5Q6A+2JmbcXaj5vuQ476s/WLZ3gArGKA3+0qMDDxIAWAG583msjXAcFaEG3viUh+wHze/ABvTAAOruRmNIfPDgFU1lDmznuRwjJwA+0AAVxpgNxp70qQAI9nj83I+AJDGn9UDWMRhDUAkzqVzPpuHJuT30Vz7MN1ODbANhuocpOe4eWY11yvAPtx3BLHLzwC7yQCILds+fedG5rPlmy9ABfZetmiAFTrAMZ5Oj+dMAoCFsjTAV2/K3GjEYB0AAIDlsjTAV2i68DYrPtcpO1HvALBY5QYYgDx80geAqryUCUQDDADjadQBIICqDbAbDeA3nsRyh/oBgKSqNsAAEIWHsgAQhAYYAACALWiAOcpH/gAAgNQ0wMCOfCQVcvNQFoBLNMCMptEAIApnEsDmNMAAcM7ZJsrbSgAIomoD7GajL3kCEMXVM8nbXwDKNsDE4GYDAAAIQwPMO97+ApFl2aOyjDM6OQJwS5YG+MqbRIfkfXcy9PaXI1ynwFHOJCAre1AgWRrgq9xcXyc7gL7sq9dpfgHoonoD3JobjivuZuZmA+A5Z9J5MgOgmx0a4NYcnmdofmFfrt/j7mT10ZxLRzmTAOjqz+oBnPDZ7h2EX/9bB+K/et2IyZVM7u4pcNej/uyd/3JdsgvX/nwfbV3u7juCyNQA9/Sq+D7f/P+8ZhMHrtp9z919/qM4lwD44cpHoCsf1D6WBsBRGqy4rA0AT+3yM8CM5UaDO1Y+dFK7/5EFVahlAF7K1gA71GL5bNYEWM8nd3hwJgHvePC+uWwNMEBvDiMZ3CG7OKwFAG9pgLnCm1+gF29v6cGZBGRhv1rsagPsowP7kj/U4pomOzUMwGFZ3wA77NaQO6OsfguotvPzYHY/Po0EXOW+Y2NZG2Dmc6FCPauv69U3ID2tznI38gays48t8ufGf/vR1i7cZ6t18xSZC5Qd2FMgB2cSQB2/7elD7su8AeY3Pl4GdVW8tlc/wKiYaSTOJKpZvWftLkL+O+9pR/b0z4P/7pTsDfDORTOabJnNQTTPLvOkDjULUMPVhrZbI3y3AXbDWo8n7OxO/c8R4fwYQf305UwCqttpj+sx19tfI/sb4IedCmckOcJfla+FCHMb2fxGaKwjZFyBHIFd7LDf9Zzjra9VpQHmHk/YiSJC8/JQ8ZqoOKeoZH2dMwmYxX3HHCPmdvlr9miAoxRO5aIZxU0GEUXZU1qrdX1Umgt1qVNgZxX3wJFzuvS1q70Brlg0I2h84bgK10qFOZwR5SGKvfY4WQGrRDkzHirthTPmcvp79GqAIxVOpaLpzQ0GXJP5uok29kjnBes5lwB+yr4vht7bq70Bfggb+CKhixCeiNgkZbyGoo155rpGqiF78E8yASKJdGY82COPO5VVzwY4WuHsfrgO+cPRJ320eHUBd2TaUzKNdRfWZO255EwCssl2bqzuPQ6p+gb4q/CL0FmKwoMDot6oRr++ou4BK9YzYg1FXJvRIjyQBXgn4pnRWp69M8s4uzfACmedaDcXUWsBeoh2vT1EHBM/7bJOka4TZxKQWaT99LvIY3vqz+oBTPRYmCqHYORCq5Ix63202LUeZV+JnFFra/OJWkNRaqe3iFlXyxgYJ+qZ8RDt7Iic1UsjGmCFM07kXB8y5gp3rdpXMuwJ/O7rGmbcP6PXYMZMAd5Z2c9E3/ffGvUGOHoT3FqeRjh6jl9Fz5KcMuwnDzP2lSxZPETYF7LUUIZzKUOOD5FzBOLKcma0NvchapZM3trpI9CvRHv6nrW4ImQHUXy/jq9eH1n3g4dI+0LGG5oo+WXJDaCXTGfGw7Px3jlHss3/sJENcIXCmXHzkS0jWCHjfvJV5rGzjjPpuigPD4C8st97tPZ+/I+9Mvs8Txn9Bjh74fw29neHa+Z5n+Emg1my7ye7ibg3ZK+hO2fSka9RRcTaA4hohzPhhxkfgc5+w/FKxTmd5SaD2aruJ9VE3huq1lDFOV0RufaAfKqeGVvr/XeA2YebDCAr+1dN1hUYwd4S36k1mtUAK5xarCcrfTQ1GFmWtckyTo6xnsBI9phCZr4BVjg1WEfglWz7Q7bx8pMHYmTmo7W52GtiOr0usz8CrXBys35Eoh5jyboeWceNtQPms+8UsOJngBVOTtaNiNRlDNaB2dQcAJfOglW/BMvBlYePlxGd+lyrQv4V5rAT6wWsZA+K4fI6rPwt0IonPmtEFmp1jUq5V5pLVR7IAlHYj9a6lf3qP4OkcOKyNmSjZueqmHfFOVVhbYCI7E3z3c58dQPcmsKJxhMtMlO7c1TO2R4Yi/UAorNHzdMl6wgNcGsKJ4pq6+DPC+ypWh1Hs0u+u8wzMmtAdWq8Dms5XreMozTArXnKu1LV7CvOiWOs/Ri75brbfCORPZCNfWucrtlGaoAfFM9c8qYqtd3XrnnuOu9Vqj6QpQ+1QXRqtL/umUZsgFtTPDPMvMmwnqziZvo+GcpgBhnnYq1oTR28Yj/rY1iOURvg1hTOKC5KestQTxnGGJHc/iWPMeQK82S/3jKNP9NYoxmaXeQGuDXNWk+y3IM1fk0258jrOXtpHx9tXZa7fM/RKs4JenNmnDc8r+gN8IPCuS7KhTd7DBHmTDxRrofIZHSMjK6THVeoGzJTv+9Nu//I0gC35qbsLHnta+a6Z60x18dPMjlPZudEyss+SRRq8bgK488+h1Gm5vJn5jfr5BGQv/H6XOQL66PNWbfIGRCL/cT10oM6+p0aq2vWuU5cauA8Z8Zfy86Gj8/P9Nmnn0AHmW4uRq9XpixGk/V5O+0nFdcvip3q6JUs9WWfvM+D7T6y12L28a+025mxfC0zfQT6lV0/TrDyF4jckW28mY3Muuo6Vp3XVxn3jWx2zjjb3O2T942epxxzyD7+lXbKLsRcK7wB/q7chL4JUTgdjFinKtn01jvrnXKutJ/stG7RVKqj7yrUlfOoDzn2kT1H9xz3VTszwq1hxQb4qyqTC1c4HfVao8oZ9SDn+7LuJzuvWTRZa+iryvVkn7xPhn303CtWZKkO+sl6boReu+oN8FeZJhq6aAa4sza7ZXXH3WtA1n9l2EusVXwZ6uirXWrKedSHHPu4mmOEDNVAX1nOjBRrt1MD/F2kiacolgnOrInM7jmatZzfi7CXWKf8ItTRg3r6yz55z5WaluVPZ3OMlmH28UcV5cxIuV47N8CvjAokZYEE8NlkR17ZP8ZGDNl/JhDo59l+kOl6/jr+TOPOxM9hv6EBBgAAYAsV/gwSAAAAvKUBBgAAYAsaYAAAALagAQYAAGALGmAAAAC2oAEGAABgCxpgAAAAtqABBgAAYAsaYAAAALagAQYAAGAL/weSo4uurpfnLwAAAABJRU5ErkJggg==" alt="Endemic" /></div>
+</footer>
+
+</body>
+</html>

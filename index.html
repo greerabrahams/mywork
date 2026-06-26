@@ -26,7 +26,7 @@
        display:flex; align-items:center; justify-content:space-between; }
   .nav-name{ font-family:var(--serif); font-size:0.9rem; font-weight:500; color:#fff;
              letter-spacing:0.22em; text-transform:uppercase; }
-  .nav-links{ display:flex; gap:2rem; list-style:none; }
+  .nav-links{ display:flex; gap:1.5rem; list-style:none; }
   .nav-links a{ font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase;
                 color:rgba(255,255,255,0.6); transition:color .2s; }
   .nav-links a:hover{ color:var(--coral); }
@@ -97,18 +97,19 @@
   .case-arrow{ display:inline-block; margin-top:1.1rem; font-size:0.7rem; letter-spacing:0.1em;
                text-transform:uppercase; color:var(--teal); font-weight:600; }
   .case-soon.live{ color:var(--teal); border-color:rgba(0,95,107,0.4); }
-  .work-foot{ margin-top:2.2rem; font-size:0.78rem; color:var(--muted); line-height:1.7;
-              max-width:760px; }
+  /* ---------- WORK GROUPS ---------- */
+  .group-label{ font-family:var(--serif); font-size:1.45rem; font-weight:600; color:var(--navy);
+                margin:2.9rem 0 1.4rem; padding-bottom:0.55rem; position:relative; scroll-margin-top:90px; }
+  .group-label::after{ content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:var(--coral); }
+  .group-label:first-of-type{ margin-top:0.6rem; }
 
-  /* ---------- CREDENTIALS ---------- */
-  .quals{ display:flex; flex-direction:column; gap:0.1rem; }
-  .qual{ display:flex; justify-content:space-between; align-items:baseline; gap:1.5rem;
-         padding:0.95rem 0; border-bottom:1px solid var(--cream); }
-  .qual:last-child{ border-bottom:none; }
-  .qual .qt{ font-size:0.96rem; color:var(--ink); }
-  .qual .qt b{ color:var(--navy); font-weight:600; }
-  .qual .qt .inst{ color:var(--muted); }
-  .qual .qy{ font-size:0.8rem; font-weight:600; color:var(--teal); white-space:nowrap; }
+  /* ---------- FULL RESUME ---------- */
+  .resume-row{ display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+  .resume-text{ font-size:1rem; color:var(--ink); line-height:1.7; max-width:620px; }
+  .resume-btn{ display:inline-flex; align-items:center; gap:0.5rem; background:var(--coral); color:var(--navy);
+               font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600;
+               padding:0.95rem 1.8rem; border-radius:40px; white-space:nowrap; transition:filter .2s; }
+  .resume-btn:hover{ filter:brightness(1.07); }
 
   /* ---------- CONTACT (navy) ---------- */
   .contact-wrap{ background:var(--navy); }
@@ -116,7 +117,7 @@
             display:grid; grid-template-columns:1fr 1fr; gap:4.5rem; align-items:start; }
   .contact-title{ font-family:var(--serif); font-size:clamp(2rem,4vw,2.9rem); font-weight:600;
                   line-height:1.2; color:#fff; margin-bottom:2.5rem; }
-  .contact-title em{ font-style:italic; color:var(--coral); }
+  .contact-title em{ font-style:italic; font-weight:400; color:var(--coral); }
   .clink{ display:flex; align-items:center; gap:1rem; color:rgba(255,255,255,0.82); font-size:0.92rem;
           padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.12); transition:color .2s; }
   .clink:hover{ color:var(--coral); }
@@ -162,8 +163,10 @@
 <nav>
   <a href="#home" class="nav-name">Greer Abrahams</a>
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#thought-leadership">Thought Leadership</a></li>
+    <li><a href="#live-builds">Live Builds</a></li>
+    <li><a href="#case-studies">Strategy &amp; Case Studies</a></li>
+    <li><a href="resume.html">Full Resume</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://linkedin.com/in/gcabrahams" target="_blank" rel="noopener">LinkedIn</a></li>
   </ul>
@@ -202,9 +205,49 @@
 <div id="work">
   <div class="section">
     <p class="section-label">Selected Work</p>
+
+    <h2 class="group-label" id="thought-leadership">Thought Leadership</h2>
+    <div class="cases">
+      <a class="case" href="writing-you-are-what-you-repeat.html">
+        <div class="case-head"><span class="wm">01</span><span class="ix">Always-On Content</span></div>
+        <div class="case-body">
+          <span class="case-soon">Essay</span>
+          <h3 class="case-title">You are what you repeat</h3>
+          <p class="case-note">Why showing up beats showing off. Campaigns are the bonfire: spectacular, photographed, gone by morning. Always-on content is the furnace that keeps the house warm.</p>
+          <div class="case-platforms">Always-On Content &middot; Brand Consistency &middot; Strategy</div>
+          <span class="case-arrow">Read article &rarr;</span>
+        </div>
+      </a>
+      <a class="case" href="writing-skeptic-swipe-right.html">
+        <div class="case-head"><span class="wm">02</span><span class="ix">The Marketing Funnel</span></div>
+        <div class="case-body">
+          <span class="case-soon">Essay</span>
+          <h3 class="case-title">How to Make a Skeptic Swipe Right</h3>
+          <p class="case-note">The marketing funnel as courtship. Most brands greet a new audience with a boombox and a marriage proposal, then wonder why nobody swoons. Awareness, interest, conversion, reframed.</p>
+          <div class="case-platforms">Awareness &middot; Interest &middot; Conversion</div>
+          <span class="case-arrow">Read article &rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="group-label" id="live-builds">Live Builds</h2>
+    <div class="cases">
+      <a class="case" href="koncept-kreative-case-study.html">
+        <div class="case-head"><span class="wm">03</span><span class="ix">Digital Architecture &middot; Fine Art</span></div>
+        <div class="case-body">
+          <span class="case-soon live">Live build</span>
+          <h3 class="case-title">Koncept Kreative: an independent digital home for a Cape Flats artist's life's work</h3>
+          <p class="case-note">Forty-two years of paintings and books, offline and invisible. The build: stop renting attention and own the platform &mdash; a self-reliant digital architecture that doesn't depend on anyone else's algorithm.</p>
+          <div class="case-platforms">Owned Web &middot; Digital Architecture &middot; Brand Identity</div>
+          <span class="case-arrow">View live build &rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="group-label" id="case-studies">Strategy &amp; Case Studies</h2>
     <div class="cases">
       <a class="case" href="case-bank-gen-z-strategy.html">
-        <div class="case-head"><span class="wm">01</span><span class="ix">Brand Strategy &middot; Banking</span></div>
+        <div class="case-head"><span class="wm">04</span><span class="ix">Brand Strategy &middot; Banking</span></div>
         <div class="case-body">
           <span class="case-soon live">Strategic playbook</span>
           <h3 class="case-title">Re-entering Gen Z &amp; Gen Alpha: a system-level brand playbook for a major SA bank</h3>
@@ -213,18 +256,8 @@
           <span class="case-arrow">Read case study &rarr;</span>
         </div>
       </a>
-      <a class="case" href="koncept-kreative-case-study.html">
-        <div class="case-head"><span class="wm">02</span><span class="ix">Digital Architecture &middot; Fine Art</span></div>
-        <div class="case-body">
-          <span class="case-soon live">Case study</span>
-          <h3 class="case-title">Koncept Kreative: an independent digital home for a Cape Flats artist's life's work</h3>
-          <p class="case-note">Forty-two years of paintings and books, offline and invisible. The build: stop renting attention and own the platform &mdash; a self-reliant digital architecture that doesn't depend on anyone else's algorithm.</p>
-          <div class="case-platforms">Owned Web &middot; Digital Architecture &middot; Brand Identity</div>
-          <span class="case-arrow">Read case study &rarr;</span>
-        </div>
-      </a>
       <a class="case" href="juno-case-study.html">
-        <div class="case-head"><span class="wm">03</span><span class="ix">Digital Transformation &middot; Retail</span></div>
+        <div class="case-head"><span class="wm">05</span><span class="ix">Digital Transformation &middot; Retail</span></div>
         <div class="case-body">
           <span class="case-soon live">Case study</span>
           <h3 class="case-title">Juno's Custom African Designs: from an overloaded phone to a Meta-native sales channel</h3>
@@ -233,30 +266,17 @@
           <span class="case-arrow">Read case study &rarr;</span>
         </div>
       </a>
-      <div class="case">
-        <div class="case-head"><span class="wm">04</span><span class="ix">Case Study 04</span></div>
-        <div class="case-body">
-          <span class="case-soon">Coming soon</span>
-          <h3 class="case-title">Case study in preparation</h3>
-          <p class="case-note">A detailed breakdown of the brief, the strategic approach, and the measurable outcome.</p>
-          <div class="case-platforms">Platforms &middot; to be added</div>
-        </div>
-      </div>
     </div>
-    <p class="work-foot"><strong style="color:var(--teal);">Note on case studies:</strong> These are illustrative strategic exercises prepared for portfolio purposes. They are hypothetical, drawn only from publicly observable information, and are not affiliated with, endorsed by, or representative of any actual brand, organisation, or client engagement. No confidential or proprietary information is used or implied. Further case studies are in preparation.
   </div>
 </div>
 
-<!-- CREDENTIALS -->
-<div class="quote-wrap" id="credentials">
+<!-- FULL RESUME -->
+<div class="quote-wrap" id="full-resume">
   <div class="section">
-    <p class="section-label">Credentials</p>
-    <div class="quals">
-      <div class="qual"><span class="qt"><b>BA Corporate Communication (Distinction)</b> <span class="inst">&middot; The Open University London, via Varsity College</span></span><span class="qy">2016</span></div>
-      <div class="qual"><span class="qt"><b>Higher Certificate in Business Practice &amp; Principles</b> <span class="inst">&middot; Varsity College</span></span><span class="qy">2013</span></div>
-      <div class="qual"><span class="qt"><b>Social Media Certificate</b> <span class="inst">&middot; University of Cape Town, via GetSmarter</span></span><span class="qy">2018</span></div>
-      <div class="qual"><span class="qt"><b>Advanced Diploma in Digital Marketing</b> <span class="inst">&middot; Digital School of Marketing, 19 modules completed</span></span><span class="qy">2025</span></div>
-      <div class="qual"><span class="qt"><b>N6 Certificate in Financial Management</b> <span class="inst">&middot; False Bay College</span></span><span class="qy">2006</span></div>
+    <p class="section-label">Full Resume</p>
+    <div class="resume-row">
+      <p class="resume-text">The complete record: a decade across brand, communication and CX, with the roles, the proof points, the technical stack, and references.</p>
+      <a class="resume-btn" href="resume.html">View full resume &rarr;</a>
     </div>
   </div>
 </div>
